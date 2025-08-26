@@ -1,5 +1,23 @@
-# Question 1
-setwd("path/to/your/folder")  # e.g., setwd("D:/Desktop/IT2120_Lab04")
-branch_data <- read.csv("Exercise.txt")
+setwd("C:/Users/IT24100060/Desktop/IT24100060") 
 
-print(branch_data)
+# Question 1
+Delivery_Times <- read.table("Exercise - Lab 05.txt", header = TRUE)
+colnames(Delivery_Times) <- "Delivery_Time"
+head(Delivery_Times)
+
+# Question 2
+hist(Delivery_Times$Delivery_Time, 
+     breaks = seq(20, 70, length = 10), 
+     right = FALSE, 
+     main = "Histogram of Delivery Times (9 Classes)", 
+     xlab = "Delivery Time (minutes)", 
+     ylab = "Frequency")
+
+# Question 4
+cum_freq <- c(0, cumsum(h$counts))
+plot(breaks, cum_freq, type = "l", 
+     main = "Cumulative Frequency Polygon (Ogive) for Delivery Times",
+     xlab = "Delivery Time (minutes)", 
+     ylab = "Cumulative Frequency", 
+     ylim = c(0, max(cum_freq)))
+points(breaks, cum_freq, pch = 16)
